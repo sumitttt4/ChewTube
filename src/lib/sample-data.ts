@@ -6,6 +6,7 @@ export type Video = {
   categories: string[];
   upvotes: number;
   allTimeScore: number;
+  durationMinutes: number;
   thumbnail: string;
   youtubeId: string;
   submitter: string;
@@ -21,6 +22,7 @@ export const sampleVideos: Video[] = [
     categories: ["Food", "Chill"],
     upvotes: 128,
     allTimeScore: 442,
+    durationMinutes: 13,
     thumbnail: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop",
     youtubeId: "dQw4w9WgXcQ",
     submitter: "@noodles",
@@ -34,6 +36,7 @@ export const sampleVideos: Video[] = [
     categories: ["Gaming", "Background"],
     upvotes: 92,
     allTimeScore: 310,
+    durationMinutes: 19,
     thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
     youtubeId: "dQw4w9WgXcQ",
     submitter: "@pixel",
@@ -47,6 +50,7 @@ export const sampleVideos: Video[] = [
     categories: ["Funny"],
     upvotes: 210,
     allTimeScore: 610,
+    durationMinutes: 8,
     thumbnail: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop",
     youtubeId: "dQw4w9WgXcQ",
     submitter: "@laughs",
@@ -60,6 +64,7 @@ export const sampleVideos: Video[] = [
     categories: ["Learning", "Background"],
     upvotes: 64,
     allTimeScore: 287,
+    durationMinutes: 42,
     thumbnail: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1200&auto=format&fit=crop",
     youtubeId: "dQw4w9WgXcQ",
     submitter: "@focus",
