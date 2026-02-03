@@ -272,6 +272,22 @@ ADMIN_USER_ID=
 - `.env.example` for local dev
 - Contributing guidelines
 
+## Contributing & Avoiding Merge Conflicts
+When you pull this into another repo or work with multiple branches, keep your branch up to date with `main` to minimize conflicts.
+
+```bash
+git fetch origin
+git merge origin/main
+```
+
+If conflicts do appear, resolve the files locally, then commit and push:
+
+```bash
+git add <resolved-files>
+git commit -m "Resolve merge conflicts with main"
+git push
+```
+
 ## Summary
 | Item | Decision |
 |------|----------|
