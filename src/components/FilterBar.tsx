@@ -53,6 +53,10 @@ export default function FilterBar({
           </select>
         </div>
       </div>
+      <p className="mt-3 text-xs text-slate-400">
+        Trending = most upvotes this week · Newest = latest submissions · All-time best = highest
+        lifetime score
+      </p>
       <div className="mt-4 flex flex-wrap gap-2">
         {categories.map((category) => (
           <button

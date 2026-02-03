@@ -8,13 +8,15 @@ type ServeMeButtonProps = {
   onServe: () => void;
   onSkip: () => void;
   hasResults: boolean;
+  isServing: boolean;
 };
 
 export default function ServeMeButton({
   recommendation,
   onServe,
   onSkip,
-  hasResults
+  hasResults,
+  isServing
 }: ServeMeButtonProps) {
   return (
     <div className="flex flex-col gap-3 rounded-2xl border border-chew-500/40 bg-gradient-to-br from-chew-500/20 via-slate-900/80 to-slate-900 px-6 py-5">
@@ -37,15 +39,15 @@ export default function ServeMeButton({
         <button
           type="button"
           onClick={onServe}
-          disabled={!hasResults}
+          disabled={!hasResults || isServing}
           className="rounded-full bg-chew-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-chew-500/40 transition hover:bg-chew-400 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          Serve me a video
+          {isServing ? "Serving..." : "Serve me a video"}
         </button>
         <button
           type="button"
           onClick={onSkip}
-          disabled={!hasResults}
+          disabled={!hasResults || isServing}
           className="rounded-full border border-white/20 px-5 py-2 text-sm text-slate-200 hover:border-white/40 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Not this, next

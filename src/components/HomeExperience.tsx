@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FilterBar from "@/components/FilterBar";
 import ServeMeButton from "@/components/ServeMeButton";
+import VideoCard from "@/components/VideoCard";
 import VideoGrid from "@/components/VideoGrid";
 import { sampleVideos } from "@/lib/sample-data";
 
@@ -15,6 +16,8 @@ export default function HomeExperience() {
   const [categoryFilter, setCategoryFilter] = useState<"All" | string>("All");
   const [sortBy, setSortBy] = useState<SortOption>("Trending");
   const [recommendation, setRecommendation] = useState<(typeof sampleVideos)[number] | null>(null);
+  const [isServing, setIsServing] = useState(false);
+  const [recentlyWatched, setRecentlyWatched] = useState<(typeof sampleVideos)[number][]>([]);
 
   const filteredVideos = useMemo(() => {
     let results = sampleVideos;
@@ -46,13 +49,29 @@ export default function HomeExperience() {
 
   const hasResults = filteredVideos.length > 0;
 
+  useEffect(() => {
+    const stored = localStorage.getItem("chewtube:recently-watched");
+    if (!stored) {
+      return;
+    }
+    const ids = stored.split(",").filter(Boolean);
+    const matches = ids
+      .map((id) => sampleVideos.find((video) => video.id === id))
+      .filter((video): video is (typeof sampleVideos)[number] => Boolean(video));
+    setRecentlyWatched(matches);
+  }, []);
+
   const serveRandom = () => {
     if (!hasResults) {
       setRecommendation(null);
       return;
     }
-    const randomIndex = Math.floor(Math.random() * filteredVideos.length);
-    setRecommendation(filteredVideos[randomIndex]);
+    setIsServing(true);
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * filteredVideos.length);
+      setRecommendation(filteredVideos[randomIndex]);
+      setIsServing(false);
+    }, 350);
   };
 
   const skipRandom = () => {
@@ -73,11 +92,37 @@ export default function HomeExperience() {
 
   return (
     <div className="space-y-10">
+      {recentlyWatched.length > 0 ? (
+        <section className="space-y-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-chew-200">Recently watched</p>
+              <h2 className="text-2xl font-semibold text-white">Pick up where you left off</h2>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                localStorage.removeItem("chewtube:recently-watched");
+                setRecentlyWatched([]);
+              }}
+              className="text-xs uppercase tracking-wide text-slate-400 hover:text-slate-200"
+            >
+              Clear history
+            </button>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {recentlyWatched.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))}
+          </div>
+        </section>
+      ) : null}
       <ServeMeButton
         recommendation={recommendation}
         onServe={serveRandom}
         onSkip={skipRandom}
         hasResults={hasResults}
+        isServing={isServing}
       />
       <FilterBar
         selectedDuration={durationFilter}
