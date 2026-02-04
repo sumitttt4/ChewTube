@@ -20,7 +20,7 @@ export default function HomeExperience() {
   const [isServing, setIsServing] = useState(false);
   const [recentlyWatched, setRecentlyWatched] = useState<(typeof sampleVideos)[number][]>([]);
   const [interests, setInterests] = useState<string[]>([]);
-  const [hasManualCategory, setHasManualCategory] = useState(false);
+
   const [planTarget, setPlanTarget] = useState(20);
   const [planVideos, setPlanVideos] = useState<(typeof sampleVideos)[number][]>([]);
 
@@ -38,11 +38,7 @@ export default function HomeExperience() {
     const sorted = [...results];
 
     if (sortBy === "Trending") {
-      sorted.sort((a, b) => {
-        const interestBoost = (video: (typeof sampleVideos)[number]) =>
-          video.categories.filter((category) => interests.includes(category)).length * 25;
-        return b.upvotes + interestBoost(b) - (a.upvotes + interestBoost(a));
-      });
+
     }
 
     if (sortBy === "Newest") {
@@ -54,7 +50,7 @@ export default function HomeExperience() {
     }
 
     return sorted;
-  }, [categoryFilter, durationFilter, interests, sortBy]);
+
 
   const hasResults = filteredVideos.length > 0;
   const hasInterests = interests.length > 0;
@@ -72,16 +68,7 @@ export default function HomeExperience() {
   }, []);
 
   useEffect(() => {
-    if (hasManualCategory || categoryFilter !== "All") {
-      return;
-    }
-    if (interests.length === 0) {
-      return;
-    }
-    setCategoryFilter(interests[0]);
-  }, [categoryFilter, hasManualCategory, interests]);
 
-  useEffect(() => {
     if (!hasInterests) {
       setPlanVideos([]);
       return;
@@ -174,10 +161,7 @@ export default function HomeExperience() {
         selectedCategory={categoryFilter}
         selectedSort={sortBy}
         onDurationChange={setDurationFilter}
-        onCategoryChange={(value) => {
-          setHasManualCategory(true);
-          setCategoryFilter(value);
-        }}
+
         onSortChange={setSortBy}
       />
       <section className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">

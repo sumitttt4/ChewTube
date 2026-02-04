@@ -1,14 +1,3 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Admin seed",
-  description: "Seed the ChewTube catalog with staff-approved picks.",
-  openGraph: {
-    title: "Admin seed",
-    description: "Seed the ChewTube catalog with staff-approved picks.",
-    url: "/admin/seed"
-  }
-};
 
 export default function AdminSeedPage() {
   return (

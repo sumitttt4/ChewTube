@@ -1,15 +1,5 @@
 import Link from "next/link";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "Learn about ChewTube and the open-source community behind it.",
-  openGraph: {
-    title: "About",
-    description: "Learn about ChewTube and the open-source community behind it.",
-    url: "/about"
-  }
-};
 
 export default function AboutPage() {
   return (

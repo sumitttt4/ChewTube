@@ -1,15 +1,4 @@
-import HomeExperience from "@/components/HomeExperience";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Browse",
-  description: "Browse curated videos, filter by mood, and plan your next mealtime watch.",
-  openGraph: {
-    title: "Browse",
-    description: "Browse curated videos, filter by mood, and plan your next mealtime watch.",
-    url: "/"
-  }
-};
 
 export default function HomePage() {
   return (
@@ -25,7 +14,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <HomeExperience />
+
     </div>
   );
 }
