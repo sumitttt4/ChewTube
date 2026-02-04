@@ -1,5 +1,4 @@
 
-import { sampleVideos } from "@/lib/sample-data";
 
 export default function ProfilePage({ params }: { params: { username: string } }) {
   const videos = sampleVideos.slice(0, 2);

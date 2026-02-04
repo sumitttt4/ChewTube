@@ -9,6 +9,7 @@
         <span className="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs text-white">
           {video.duration}
         </span>
+
       </div>
       <div className="space-y-3 p-4">
         <div>

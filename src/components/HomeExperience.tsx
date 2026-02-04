@@ -20,6 +20,7 @@ export default function HomeExperience() {
   const [isServing, setIsServing] = useState(false);
   const [recentlyWatched, setRecentlyWatched] = useState<(typeof sampleVideos)[number][]>([]);
   const [interests, setInterests] = useState<string[]>([]);
+
   const [planTarget, setPlanTarget] = useState(20);
   const [planVideos, setPlanVideos] = useState<(typeof sampleVideos)[number][]>([]);
 
@@ -37,7 +38,7 @@ export default function HomeExperience() {
     const sorted = [...results];
 
     if (sortBy === "Trending") {
-      sorted.sort((a, b) => b.upvotes - a.upvotes);
+
     }
 
     if (sortBy === "Newest") {
@@ -49,7 +50,7 @@ export default function HomeExperience() {
     }
 
     return sorted;
-  }, [categoryFilter, durationFilter, sortBy]);
+
 
   const hasResults = filteredVideos.length > 0;
   const hasInterests = interests.length > 0;
@@ -67,6 +68,7 @@ export default function HomeExperience() {
   }, []);
 
   useEffect(() => {
+
     if (!hasInterests) {
       setPlanVideos([]);
       return;
@@ -159,7 +161,7 @@ export default function HomeExperience() {
         selectedCategory={categoryFilter}
         selectedSort={sortBy}
         onDurationChange={setDurationFilter}
-        onCategoryChange={setCategoryFilter}
+
         onSortChange={setSortBy}
       />
       <section className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
