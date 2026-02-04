@@ -1,7 +1,4 @@
-import FilterBar from "@/components/FilterBar";
-import ServeMeButton from "@/components/ServeMeButton";
-import VideoGrid from "@/components/VideoGrid";
-import { sampleVideos } from "@/lib/sample-data";
+
 
 export default function HomePage() {
   return (
@@ -17,9 +14,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <ServeMeButton />
-      <FilterBar />
-      <VideoGrid videos={sampleVideos} />
+
     </div>
   );
 }

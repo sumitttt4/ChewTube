@@ -1,9 +1,4 @@
-import Image from "next/image";
-import type { Video } from "@/lib/sample-data";
 
-export default function VideoCard({ video }: { video: Video }) {
-  return (
-    <article className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900/60 transition hover:border-chew-400/60">
       <div className="relative h-44 w-full">
         <Image
           src={video.thumbnail}
