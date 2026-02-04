@@ -18,16 +18,18 @@ export default function VideoGrid({ videos, emptyMessage }: VideoGridProps) {
         animate={{ opacity: 1, y: 0 }}
         className="flex flex-col items-center justify-center py-16 sm:py-24 bg-gradient-to-b from-white/5 to-transparent rounded-3xl border border-white/10 text-center px-6"
       >
-        <div className="text-6xl mb-6">🍽️</div>
-        <p className="text-2xl sm:text-3xl font-black text-white mb-2">The Kitchen is Empty!</p>
+        <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6">
+          <Film className="w-8 h-8 text-zinc-600" />
+        </div>
+        <p className="text-2xl sm:text-3xl font-black text-white mb-2">The Kitchen is Empty</p>
         <p className="text-sm sm:text-base text-zinc-500 max-w-md mb-8">
-          Be the first Chef to plate a dish. Submit your favorite YouTube video and help others eat well.
+          Be the first to plate a dish. Submit your favorite YouTube video and help others eat well.
         </p>
         <Link
           href="/submit"
           className="rounded-full bg-red-600 px-8 py-3 text-sm font-bold text-white hover:bg-red-500 transition-all active:scale-95 shadow-lg shadow-red-600/20"
         >
-          🔥 Submit First Video
+          Submit First Video
         </Link>
       </motion.div>
     );
