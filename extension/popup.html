@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #09090b;
+      color: white;
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #71717a;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #status {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-top: 12px;
+      display: none;
+      font-weight: 600;
+    }
+    .success { background: #18181b; color: #ef4444; border: 1px solid #ef444420; }
+    .error { background: #18181b; color: #71717a; border: 1px solid #ffffff05; }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 800;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+      transition: all 0.2s;
+    }
+    button:hover { background: #dc2626; transform: translateY(-1px); }
+    button:active { transform: translateY(0px); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <h2>ChewTube Cooker</h2>
+  <p className="subtitle">Add to the menu</p>
+  <button id="submitBtn">Serve this Video</button>
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
