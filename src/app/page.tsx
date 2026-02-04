@@ -1,4 +1,4 @@
-import HomeExperience from "@/components/HomeExperience";
+
 
 export default function HomePage() {
   return (
@@ -14,7 +14,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <HomeExperience />
+
     </div>
   );
 }
